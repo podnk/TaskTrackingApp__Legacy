@@ -9,7 +9,7 @@ public class MainFrame extends JFrame
 {
     private Border loweredetched;
 
-    private String[] taskTypes = {"Requirement", "Bug", "Task"};
+    private String[] taskTypes = {"Task", "Requirement", "Bug"};
 
     private JComboBox tastTypesList;
 
@@ -18,7 +18,6 @@ public class MainFrame extends JFrame
     private JLabel commentLabl = null;
 
     private JTextField recNumField = null;
-    private JTextField recTypeField = null;
     private JTextField commentField = null;
 
     private JButton nextButton = null;
@@ -70,7 +69,6 @@ public class MainFrame extends JFrame
     {
         // Размер кнопок по умолчанию
         Font consolasFont = new Font("Consolas",0,14);
-//        Font calibriFont = new Font("Calibri",0,14);
         loweredetched = BorderFactory.createEtchedBorder(EtchedBorder.LOWERED);
 
         // Creating components
@@ -81,9 +79,8 @@ public class MainFrame extends JFrame
             recTypeLabl = new JLabel("Тип:");
             commentLabl = new JLabel("Комментарий:");
 
-            recNumField = new JTextField("recNumField");
-            recTypeField = new JTextField("recTypeField");
-            commentField = new JTextField("commentField");
+            recNumField = new JTextField();
+            commentField = new JTextField();
 
             nextButton = new JButton("Next");
             prevButton = new JButton("Prev");
@@ -104,35 +101,33 @@ public class MainFrame extends JFrame
 
         //  Coordinates and prefs
         {
-            recNumLabl.setBounds(10,15,100,20);
+            recNumLabl.setBounds(20,35,100,20);
             recNumLabl.setFont(consolasFont);
 
-            recTypeLabl.setBounds(10,45,100,20);
+            recTypeLabl.setBounds(20,65,100,20);
             recTypeLabl.setFont(consolasFont);
 
-            commentLabl.setBounds(10,75,100,20);
+            commentLabl.setBounds(20,95,120,20);
             commentLabl.setFont(consolasFont);
 
-            recNumField.setBounds(110,10,100,25);
-//            recNumField.setFont(calibriFont);
+            recNumField.setBounds(135,30,100,25);
 
-            recTypeField.setBounds(110,40,100,25);
-//            recTypeField.setFont(calibriFont);
+            tastTypesList.setBounds(135,60,100,25);
 
-            commentField.setBounds(110,70,100,25);
-//            commentField.setFont(calibriFont);
+            commentField.setBounds(135,90,100,25);
 
-            saveButton.setBounds(5,5,100,35);
-            nextButton.setBounds(105,5,100,35);
-            cancelButton.setBounds(205,5,100,35);
 
-            fieldsPanel.setBounds(10,10,250,200);
+            saveButton.setBounds(10,10,100,35);
+            nextButton.setBounds(110,10,100,35);
+            cancelButton.setBounds(210,10,100,35);
+
+            fieldsPanel.setBounds(10,10,250,150);
             fieldsPanel.setBorder(loweredetched);
 
             listPanel.setBounds(270,10,300,350);
             listPanel.setBorder(loweredetched);
 
-            buttonsPanel.setBounds(135,385,310,45);
+            buttonsPanel.setBounds(130,385,320,55);
             buttonsPanel.setBorder(loweredetched);
         }
 
@@ -142,8 +137,8 @@ public class MainFrame extends JFrame
             fieldsPanel.add(recTypeLabl);
             fieldsPanel.add(commentLabl);
             fieldsPanel.add(recNumField);
-            fieldsPanel.add(recTypeField);
             fieldsPanel.add(commentField);
+            fieldsPanel.add(tastTypesList);
 
             buttonsPanel.add(nextButton);
             buttonsPanel.add(saveButton);
