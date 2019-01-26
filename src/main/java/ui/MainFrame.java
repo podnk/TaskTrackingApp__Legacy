@@ -1,5 +1,7 @@
 package ui;
 
+import org.apache.log4j.Logger;
+
 import javax.swing.*;
 import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
@@ -7,6 +9,8 @@ import java.awt.*;
 
 public class MainFrame extends JFrame
 {
+    private static final Logger log = Logger.getLogger(MainFrame.class);
+
     private Border loweredetched;
 
     private String[] taskTypes = {"Task", "Requirement", "Bug"};
@@ -21,7 +25,7 @@ public class MainFrame extends JFrame
     private JTextField commentField = null;
 
     private JButton nextButton = null;
-    private JButton prevButton = null;
+//    private JButton prevButton = null;
     private JButton cancelButton = null;
     private JButton saveButton = null;
 
@@ -37,10 +41,12 @@ public class MainFrame extends JFrame
         try
         {
             initComponents();
+            log.info("Components are initialized successfully");
         }
         catch (Exception componentsEx)
         {
             System.out.println("Components initialization error");
+            log.error("Components initialization error");
         }
 
         try
@@ -50,6 +56,7 @@ public class MainFrame extends JFrame
         catch (Exception frameEx)
         {
             System.out.println("Frame initialization error");
+            log.error("Frame initialization error");
         }
 
     }
@@ -68,7 +75,7 @@ public class MainFrame extends JFrame
     private void initComponents()
     {
         // Размер кнопок по умолчанию
-        Font consolasFont = new Font("Consolas",0,14);
+        Font consolasFont = new Font("Consolas", Font.PLAIN,14);
         loweredetched = BorderFactory.createEtchedBorder(EtchedBorder.LOWERED);
 
         // Creating components
@@ -83,7 +90,7 @@ public class MainFrame extends JFrame
             commentField = new JTextField();
 
             nextButton = new JButton("Next");
-            prevButton = new JButton("Prev");
+//            prevButton = new JButton("Prev");
             cancelButton = new JButton("Cancel");
             saveButton = new JButton("Save");
 
@@ -117,9 +124,9 @@ public class MainFrame extends JFrame
             commentField.setBounds(135,90,100,25);
 
 
-            saveButton.setBounds(10,10,100,35);
-            nextButton.setBounds(110,10,100,35);
-            cancelButton.setBounds(210,10,100,35);
+            saveButton.setBounds(10,10,100,33);
+            nextButton.setBounds(110,10,100,33);
+            cancelButton.setBounds(210,10,100,33);
 
             fieldsPanel.setBounds(10,10,250,150);
             fieldsPanel.setBorder(loweredetched);
@@ -127,7 +134,7 @@ public class MainFrame extends JFrame
             listPanel.setBounds(270,10,300,350);
             listPanel.setBorder(loweredetched);
 
-            buttonsPanel.setBounds(130,385,320,55);
+            buttonsPanel.setBounds(130,385,320,51);
             buttonsPanel.setBorder(loweredetched);
         }
 
