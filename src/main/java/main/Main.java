@@ -15,16 +15,17 @@ public class Main
         try
         {
             UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-            log.info("Look&Feel is initialized successfully");
+//            log.info("Look&Feel is initialized successfully");
+            log.info("Look&Feel - OK");
         }
         catch (Exception e)
         {
-            System.out.println("Look and Feel is not set");
-            log.error("Look and Feel is not set");
+            System.out.println("Look&Feel - ERROR");
+            log.error("Look&Feel - ERROR");
         }
 
         MainFrame mainFrame = new MainFrame("Main Frame");
-        log.info("Main frame has been created successfully");
+//        log.info("Main frame has been created successfully");
 
         DbConnection.Connect();
     }

@@ -41,12 +41,12 @@ public class MainFrame extends JFrame
         try
         {
             initComponents();
-            log.info("Components are initialized successfully");
+//            log.info("Components are initialized successfully");
+            log.info("Components - OK");
         }
         catch (Exception componentsEx)
         {
-            System.out.println("Components initialization error");
-            log.error("Components initialization error");
+            log.error("Components - ERROR");
         }
 
         try
@@ -55,10 +55,9 @@ public class MainFrame extends JFrame
         }
         catch (Exception frameEx)
         {
-            System.out.println("Frame initialization error");
-            log.error("Frame initialization error");
+            log.error("MainFrame - ERROR");
         }
-
+        log.info("MainFrame - OK");
     }
 
     private void initFrame()
@@ -123,7 +122,6 @@ public class MainFrame extends JFrame
 
             commentField.setBounds(135,90,100,25);
 
-
             saveButton.setBounds(10,10,100,33);
             nextButton.setBounds(110,10,100,33);
             cancelButton.setBounds(210,10,100,33);
@@ -155,7 +153,6 @@ public class MainFrame extends JFrame
             mainPanel.add(fieldsPanel);
             mainPanel.add(listPanel);
         }
-
         add(mainPanel);
     }
 }

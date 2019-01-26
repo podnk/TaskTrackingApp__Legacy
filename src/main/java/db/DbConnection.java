@@ -15,7 +15,7 @@ public class DbConnection
 
         try
         {
-            Class.forName("org.sqlite.JDBC");
+//            Class.forName("org.sqlite.JDBC");
             String url = "jdbc:sqlite:src/main/resources/task_tracker.db";
             conn = DriverManager.getConnection(url);
         }
@@ -37,5 +37,7 @@ public class DbConnection
                 log.error(ex.getMessage());
             }
         }
+//        log.info("Connection has been established successfully");
+        log.info("Connection - OK");
     }
 }
