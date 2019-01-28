@@ -9,15 +9,18 @@ public class DbConnection
 {
     private static final Logger log = Logger.getLogger(DbConnection.class);
 
+    private static Connection conn = null;
+
     public static void Connect()
     {
-        Connection conn = null;
-
         try
         {
-//            Class.forName("org.sqlite.JDBC");
             String url = "jdbc:sqlite:src/main/resources/task_tracker.db";
             conn = DriverManager.getConnection(url);
+
+            log.info("Connection - OK");
+
+            DbQuerries.selectAll(conn);
         }
         catch (Exception ex)
         {
@@ -30,14 +33,33 @@ public class DbConnection
                 if (conn != null)
                 {
                     conn.close();
+                    log.warn("Connection has been closed\n" +
+                            "\n---------------------------\n");
                 }
             }
             catch (SQLException ex)
             {
+                log.error("Connection hasn't been closed successfully\n");
                 log.error(ex.getMessage());
             }
         }
-//        log.info("Connection has been established successfully");
-        log.info("Connection - OK");
+    }
+
+    public Connection getConnection()
+    {
+        return conn;
+    }
+
+    public static void closeConnection()
+    {
+        try
+        {
+            conn.close();
+        }
+        catch (SQLException ex)
+        {
+            log.error("Connection hasn't been closed successfully\n");
+            log.error(ex.getMessage());
+        }
     }
 }

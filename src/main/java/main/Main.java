@@ -3,7 +3,6 @@ package main;
 import db.DbConnection;
 import org.apache.log4j.Logger;
 import ui.MainFrame;
-
 import javax.swing.*;
 
 public class Main
